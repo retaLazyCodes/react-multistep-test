@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import MultiStep from 'react-multistep'
+import StepOne from './components/stepOne'
+import StepTwo from './components/stepTwo'
+import StepThree from './components/stepThree'
+import StepFour from './components/stepFour'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+export const App = () => (
+  <div className='container'>
+    <MultiStep activeStep={0} prevButton={{title: 'Back', style:{ borderColor: 'red', marginRight: "1rem" }}} >
+      <StepOne title='Step 1'/>
+      <StepTwo title='Step 2'/>
+      <StepThree title='Step 3'/>
+      <StepFour title='Step 4'/>
+    </MultiStep>
+    <div className='app-footer'>
+      <h6>Use navigation buttons or click on progress bar for next step.</h6>
+      Code is on{' '}
+      <a href='https://github.com/Srdjan/react-multistep' target='_blank' rel='noreferrer'>
+        github
+      </a>
     </div>
-  );
-}
+  </div>
+)
 
-export default App;
